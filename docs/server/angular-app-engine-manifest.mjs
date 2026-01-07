@@ -1,6 +1,6 @@
 
 export default {
-  basePath: '/',
+  basePath: '/repo',
   supportedLocales: {
   "en-US": ""
 },
