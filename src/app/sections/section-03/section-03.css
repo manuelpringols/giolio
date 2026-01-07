@@ -1,0 +1,59 @@
+.page-inner {
+  width: 100%;
+  max-width: 820px;
+  padding: 2rem clamp(1.5rem, 3vw, 2rem);
+  box-sizing: border-box; /* meglio content-box solo se serve layout preciso */
+
+  background-color: #fdfdfd;
+  border-radius: 10px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.092)),
+    url('/assets/3.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: clamp(0.9rem, 1.2vw, 1.1rem); /* testo scalabile */
+  color: #333;
+  line-height: 1.6;
+  transition: all 0.3s ease; /* transizione morbida per resizing */
+}
+@media (max-width: 640px) {
+  .page-inner {
+    padding: 1rem;       /* padding interno */
+    border-radius: 0;
+    box-shadow: none;
+    background-size: contain; 
+    background-position: top center; 
+
+    max-height: 90vh;    
+    overflow-y: auto;    
+    margin: 1rem auto;   /* spazio sopra e sotto */
+
+    /* NUOVO: limita la larghezza massima e lascia margini orizzontali */
+    max-width: 95%;      /* lascia 2.5% a sinistra e 2.5% a destra */
+    box-sizing: border-box; /* assicura che padding interno non superi il 95% */
+  }
+
+  .page-inner p, .page-inner span {
+    font-size: 0.95rem; 
+    line-height: 1.5;
+  }
+
+  .page {
+    padding: clamp(1rem, 4vw, 2rem) 0;
+  }
+
+  .page {
+    min-height: 60vh;  /* altezza fissa proporzionata al mobile */
+    height: 60vh;      /* si adatta a tutti i contenuti minori */
+    padding: clamp(1rem, 4vw, 2rem) 0; /* verticale compatto */
+    background-size: cover;            /* immagine riempie la sezione */
+    background-position: center;       /* centrata */
+  }
+}
+
+
