@@ -1,62 +1,315 @@
-
-
-
-
 .page-inner {
-  width: 100%;
-  max-width: 820px;
+  position: relative;
+  max-width: 720px;
+  margin: 0 auto;
   padding: 2rem clamp(1.5rem, 3vw, 2rem);
-  box-sizing: border-box; /* meglio content-box solo se serve layout preciso */
+  box-sizing: content-box;
 
-  background-color: #fdfdfd;
-  border-radius: 10px;
-  box-shadow: 2px 2px 12px 20px rgba(0, 0, 0, 0.248);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease,
+    filter 0.35s ease, opacity 0.35s ease;
 
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.166), rgba(255, 255, 255, 0.111)),
-    url('/assets/1.png');
+  z-index: 1;
+}
+
+.page-inner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/giolio/browser/assets/1.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+  border-radius: inherit;
+}
+
+
+.petals-layer {
+  position: absolute;
+
+
+
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 25%;
+  /* zona superiore */
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 10;
+
+
+}
+
+.petal {
+  position: absolute;
+  width: 100px;
+  /* o percentuale di page-inner */
+  height: 100px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+  will-change: transform;
+
+
+
+
+}
+
+h1 {
+  position: absolute;
+  top: 13.5vh;
+  left: 14vw;
+	font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; 
+  font-style: italic;
+}
+
+
+
+/* -------------------- PETALI -------------------- */
+.p1 {
+  width: 500px;
+  height: 400px;
+  background-image: url('/assets/petali/petalis.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 70%;
+  animation: move-bg 15s linear infinite,
+    floatCluster 6s cubic-bezier(.4, 0, .6, 1) infinite;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.031), rgba(255, 255, 255, 0.044)),
+    url("/assets/petali/petalis.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
-  font-family: 'Inter', system-ui, sans-serif;
-  font-size: clamp(0.9rem, 1.2vw, 1.1rem); /* testo scalabile */
-  color: #333;
-  line-height: 1.6;
-  transition: all 0.3s ease; /* transizione morbida per resizing */
+  /* animation:  floatCluster 6s cubic-bezier(.4,0,.6,1) infinite,
+      fallingCluster 30s linear infinite; */
+
+
+  animation-play-state: paused;
+  opacity: 0.8;
+  z-index: 0;
+
 }
+
+.p2 {
+  width: 30px;
+  height: 25px;
+  background-image: url('/giolio/browser/assets/petali/petalo2.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 10%;
+  left: 100%;
+  animation: float2 4.5s ease-in-out infinite alternate,
+    falling2 28s linear infinite;
+  animation-delay: 3s;
+  animation-play-state: paused;
+
+}
+
+.p3 {
+  width: 30px;
+  height: 25px;
+  background-image: url('/giolio/browser/assets/petali/petalo3.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 15%;
+  left: 100%;
+  animation: float3 4.2s ease-in-out infinite alternate,
+    falling3 22s linear infinite;
+  animation-delay: 2s;
+  animation-play-state: paused;
+
+}
+
+.p5 {
+  width: 30px;
+  height: 25px;
+  background-image: url('/giolio/browser/assets/petali/petalo5.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 8%;
+  left: 100%;
+  animation: float4 5.2s ease-in-out infinite alternate,
+    falling4 26s linear infinite;
+  animation-delay: 5s;
+  animation-play-state: paused;
+
+}
+
+.p7 {
+  width: 30px;
+  height: 25px;
+  background-image: url('/giolio/browser/assets/petali/petalo7.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 8%;
+  left: 100%;
+  animation: float5 5s ease-in-out infinite alternate,
+    falling5 28s linear infinite;
+  animation-delay: 0s, 2s;
+  /* float e falling hanno delay diversi */
+  animation-play-state: paused;
+
+}
+
+.p8 {
+  width: 30px;
+  height: 25px;
+  background-image: url('/giolio/browser/assets/petali/petalo8.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 12%;
+  left: 100%;
+  animation: float6 6s ease-in-out infinite alternate,
+    falling6 30s linear infinite;
+  animation-delay: 1s, 3s;
+  animation-play-state: paused;
+
+}
+
+.p9 {
+  width: 30px;
+  height: 25px;
+  background-image: url('/giolio/browser/assets/petali/petalo9.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 10%;
+  left: 100%;
+  animation: float7 4.5s ease-in-out infinite alternate,
+    falling7 26s linear infinite;
+  animation-delay: 0.5s, 1.5s;
+  animation-play-state: paused;
+
+}
+
+
+/* -------------------- FLOAT -------------------- */
+
+
+
+/* @keyframes floatCluster {
+  0% {
+    transform: rotate(1deg) translateY(0);
+  }
+
+  18% {
+    transform: rotate(6deg) translateY(-2px);
+  }
+
+  37% {
+    transform: rotate(-4deg) translateY(3px);
+  }
+
+  55% {
+    transform: rotate(3deg) translateY(1px);
+  }
+
+  72% {
+    transform: rotate(-6deg) translateY(5px);
+  }
+
+  88% {
+    transform: rotate(2deg) translateY(3px);
+  }
+
+  100% {
+    transform: rotate(1deg) translateY(2px);
+  }
+} */
+
+
+
+
+
+
+/* -------------------- FALLING / PERCORSO ORIZZONTALE STORTO -------------------- */
+
+
+
+
+.page-inner:hover .petal {
+  animation-play-state: running;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media (max-width: 640px) {
   .page-inner {
-    padding: 1rem;       /* padding interno */
-    border-radius: 0;
+    padding: 1rem;
+    /* padding interno */
     box-shadow: none;
-    background-size: contain; 
-    background-position: top center; 
+    background-size: contain;
+    background-position: top center;
 
-    max-height: 90vh;    
-    overflow-y: auto;    
+    max-height: 90vh;
+    overflow-y: auto;
 
     /* NUOVO: limita la larghezza massima e lascia margini orizzontali */
-    max-width: 95%;      /* lascia 2.5% a sinistra e 2.5% a destra */
-    box-sizing: border-box; /* assicura che padding interno non superi il 95% */
+    max-width: 95%;
+    /* lascia 2.5% a sinistra e 2.5% a destra */
+    box-sizing: border-box;
+    /* assicura che padding interno non superi il 95% */
+    border: 5px rgba(50, 58, 149, 0.531) outset;
+    border-radius: 5%;
   }
 
-  .page-inner p, .page-inner span {
-    font-size: 0.95rem; 
+  .page-inner p,
+  .page-inner span {
+    font-size: 0.95rem;
     line-height: 1.5;
   }
-.page {
-    min-height: 60vh;  /* altezza fissa proporzionata al mobile */
-    height: 60vh;      /* si adatta a tutti i contenuti minori */
-    padding: clamp(1rem, 4vw, 2rem) 0; /* verticale compatto */
-    background-size: cover;            /* immagine riempie la sezione */
-    background-position: center;       /* centrata */
+
+  .page {
+    min-height: 60vh;
+    /* altezza fissa proporzionata al mobile */
+    height: 60vh;
+    /* si adatta a tutti i contenuti minori */
+    padding: clamp(1rem, 4vw, 2rem) 0;
+    /* verticale compatto */
+    background-size: cover;
+    /* immagine riempie la sezione */
+    background-position: center;
+    /* centrata */
   }
 
 
 
-  .page-inner p, .page-inner span {
-    font-size: 0.95rem; 
+  .page-inner p,
+  .page-inner span {
+    font-size: 0.95rem;
     line-height: 1.5;
   }
 
@@ -64,8 +317,28 @@
     padding: clamp(1rem, 4vw, 2rem) 0;
   }
 
-  
+  /* RIDUZIONE PETALI */
+  .petal {
+    width: 30.8vw;
+    /* più piccoli */
+    height: 15.5vw;
+  }
 
-  
+   h1 {
+    top: 15%;
+    left: 20%;
+    max-width: 88%;
+
+    font-size: clamp(1.3rem, 6vw, 1.2rem);
+  }
+
+
+
+
+
+
+
+
+
+
 }
-

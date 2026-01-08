@@ -10,7 +10,7 @@
 
   background-image: 
     linear-gradient(rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.092)),
-    url('/assets/5.png');
+    url('/giolio/browser/assets/5.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -36,6 +36,8 @@
     /* NUOVO: limita la larghezza massima e lascia margini orizzontali */
     max-width: 95%;      /* lascia 2.5% a sinistra e 2.5% a destra */
     box-sizing: border-box; /* assicura che padding interno non superi il 95% */
+    border: 5px rgba(50, 58, 149, 0.531) outset;
+    border-radius: 5%;
   }
 
   .page-inner p, .page-inner span {

@@ -1,6 +1,39 @@
 <section class="page">
   <div class="page-inner">
+
     <h1 style="visibility: hidden;">Hero Section</h1>
-    <p style="visibility: hidden;">Qui va il contenuto della prima pagina. Puoi aggiungere testi, immagini o qualsiasi elemento tu voglia visualizzare.</p>
+    <p style="visibility: hidden;">Qui va il contenuto della prima pagina.</p>
+
+    <div class="locandine-wrapper">
+      <!-- Locandina centro destra -->
+      <img src="/giolio/browser/assets/locandina4.png" class="locandina centro-destra" (click)="zoom('locandina4.png', $event)">
+      <!-- <img src="/giolio/browser/giolio/browser/assets/locandina4.png" class="locandina centro-destra" (click)="zoom('poster1.png', $event)"> -->
+
+
+      <!-- Tre locandine in basso -->
+      <img src="/giolio/browser/assets/locandina3.png" class="locandina bottom-left" (click)="zoom('locandina3.png', $event)">
+      <img src="/giolio/browser/assets/locandina1.png" class="locandina bottom-center" (click)="zoom('locandina1.png', $event)">
+      <img src="/giolio/browser/assets/locandina2.png" class="locandina bottom-right" (click)="zoom('locandina2.png', $event)">
+
+      <!-- <img src="/giolio/browser/giolio/browser/assets/locandina3.png" class="locandina bottom-left"
+        (click)="zoom('poster2.png', $event)">
+      <img src="/giolio/browser/giolio/browser/assets/locandina1.png" class="locandina bottom-center"
+        (click)="zoom('poster3.png', $event)">
+      <img src="/giolio/browser/giolio/browser/assets/locandina2.png" class="locandina bottom-right"
+        (click)="zoom('poster4.png', $event)">-->
+    </div> 
+
   </div>
 </section>
+@if (activePoster) {
+  <div
+    class="poster-overlay"
+    (click)="closeZoom()"
+  >
+    <img
+      class="poster-zoom"
+      [src]="'/giolio/browser/assets/' + activePoster"
+      (click)="$event.stopPropagation()"
+    />
+  </div>
+}

@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -6,7 +7,8 @@ html, body {
 }
 
 body {
-  position: relative; /* necessario per gli pseudo-elementi */
+  position: relative;
+  /* necessario per gli pseudo-elementi */
   background: linear-gradient(135deg, rgb(240, 204, 220) 0%, rgba(90, 101, 163, 0.85) 100%);
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -21,18 +23,28 @@ body::before {
   left: 0;
   width: 200%;
   height: 100%;
-  background-image: url('https://www.transparenttextures.com/patterns/gray-floral.png'); /* sostituisci con stelle/piume viola */
+  background-image: url('https://www.transparenttextures.com/patterns/gray-floral.png');
+  /* sostituisci con stelle/piume viola */
   background-repeat: repeat-x;
   background-size: contain;
-  opacity: 0.8; /* più delicato per non coprire tutto */
-  z-index: -1;  /* sotto tutto il contenuto */
-  pointer-events: none; /* evita che blocchi click/scroll */
+  opacity: 0.8;
+  /* più delicato per non coprire tutto */
+  z-index: -1;
+  /* sotto tutto il contenuto */
+  pointer-events: none;
+  
+  /* evita che blocchi click/scroll */
   animation: move-bg 30s linear infinite;
 }
 
 @keyframes move-bg {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* Main e pagine rimangono invariati */
@@ -51,38 +63,92 @@ main {
   padding: clamp(2.5rem, 1.5rem, 6rem) 0;
   display: flex;
   justify-content: center;
+  border: 0;
 }
 
 .page-inner {
-  width: 100%;
+  width: 100vw;
   max-width: 820px;
   padding: 0 clamp(1.5rem, 3vw, 2rem);
+  border-radius: 5% !important;
+  box-shadow: 1px 1px 10px 7px #01010161 !important;
   box-sizing: content-box;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+
+  /* BLUR BASE */
+  filter: blur(2.5px) saturate(0.9) !important;
+  opacity: 0.95 !important ;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    padding 0.3s ease,
+    filter 0.35s ease,
+    opacity 0.35s ease;
+
+  border: 5px rgba(45, 52, 127, 0.524) outset !important;
+  border-radius: 5%;
 }
 
+
+
 .page-inner:hover {
+  /* HD MODE */
+  filter: blur(0) saturate(1) !important;
+
+  opacity: 1;
+
   transform: translateY(-8px) scale(1.02);
   box-shadow: 2px 2px 12px 20px rgba(0, 0, 0, 0.468) !important;
   padding: 2.2rem clamp(1.5rem, 3vw, 2.2rem);
-}
+border: 0 !important;
+outline: 10px rgba(43, 51, 142, 0.509) solid;
+  outline-offset: -3px; /* lo fa sembrare un bordo interno */}
 
 @media (max-width: 640px) {
   body {
-    background-attachment: scroll; /* evita che il background fisso dia effetto zoomato */
+    background-attachment: scroll;
+    /* evita che il background fisso dia effetto zoomato */
   }
 
   .page {
-    padding: clamp(1rem, 4vw, 2rem) 0; /* verticale compatto */
-    background-size: cover; /* mantiene proporzioni immagine */
-    background-position: center top; /* allinea meglio l’immagine */
+    padding: clamp(1rem, 4vw, 2rem) 0;
+    /* verticale compatto */
+    background-size: cover;
+    /* mantiene proporzioni immagine */
+    background-position: center top;
+    /* allinea meglio l’immagine */
+
+
   }
 
+  @media (max-width: 640px) {
+  .page-inner:hover {
+    /* HD MODE ridotto per mobile */
+    filter: blur(0) saturate(1) !important;
+    opacity: 1;
+    
+
+    transform: translateY(-4px) scale(1.01); /* più subtle */
+  box-shadow: 0.3vw 0.3vw 2vw 1vw rgba(0, 0, 0, 0.653) !important;
+
+    padding: 1.5rem clamp(1rem, 3vw, 1.8rem); /* ridotto per schermo piccolo */
+
+    border: 0 !important;
+    outline: 6px rgba(43, 51, 142, 0.4) solid; /* più leggero */
+    outline-offset: -2px; /* mantiene bordo interno */
+  }
+}
+
+
   .page-inner {
-    padding: 1rem 1rem;       /* margini laterali visibili */
+    padding: 1rem 1rem;
+    /* margini laterali visibili */
     border-radius: 8px;
     box-shadow: none;
-    font-size: 0.85rem;       /* riduzione font per mobile */
+    font-size: 0.85rem;
+    /* riduzione font per mobile */
     line-height: 1.4;
+   
+
   }
 }
