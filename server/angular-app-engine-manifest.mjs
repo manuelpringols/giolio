@@ -1,6 +1,6 @@
 
 export default {
-  basePath: '/giolio',
+  basePath: '/giolio/browser',
   supportedLocales: {
   "en-US": ""
 },

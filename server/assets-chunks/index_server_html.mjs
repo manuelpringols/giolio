@@ -3,7 +3,7 @@ export default `<!doctype html>
 <head>
   <meta charset="utf-8">
   <title>Giolio</title>
-  <base href="/giolio/">
+  <base href="/giolio/browser/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.cdnfonts.com/css/alien-encounters" rel="stylesheet">
